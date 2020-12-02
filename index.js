@@ -41,6 +41,8 @@ const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: "unkown endpoint" })
 }
 
+app.use(express.static('build')) // Make the backend use the build directory (which was copied from frontent), whenever a request is received
+
 app.use(cors()) // Cross origin resource changing: from frontend (port 3000) to backend (port3001)
 
 app.use(requestLogger)

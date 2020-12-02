@@ -1,0 +1,3 @@
+https://rocky-savannah-34494.herokuapp.com/api/notes
+
+heroku git: https://git.heroku.com/rocky-savannah-34494.git
