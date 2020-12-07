@@ -41,14 +41,6 @@ app.use(cors()) // Cross origin resource changing: from frontend (port 3000) to 
 
 app.use(requestLogger)
 
-// const generateId = () => {
-//   const maxId = notes.length > 0
-//     ? Math.max(...notes.map(n => n.id))
-//     : 0
-
-//   return maxId + 1
-// }
-
 app.post('/api/notes', (request, response, next) => {
   const body = request.body
 

@@ -20,11 +20,6 @@ const noteSchema = new mongoose.Schema({
 
 const Note = mongoose.model('note', noteSchema)
 
-// const note = new Note({
-//   content: 'JavaScript is awesome!',
-//   date: new Date(),
-//   important: true
-// })
 
 Note.find({}).then(result => {
   result.forEach(note => {
@@ -32,8 +27,3 @@ Note.find({}).then(result => {
   })
   mongoose.connection.close()
 })
-
-// note.save().then(result => {
-//   console.log('note saved!')
-//   mongoose.connection.close()
-// })
