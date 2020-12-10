@@ -1,22 +1,10 @@
 const mongoose = require('mongoose')
-mongoose.set('useFindAndModify', false)
-const url = process.env.MONGODB_URI
-
-console.log('connecting to', url)
-
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
-  .then(() => {
-    console.log('connected to MongoDB')
-  })
-  .catch(error => {
-    console.log('error connecting to MongoDB:', error.message)
-  })
 
 const noteSchema = new mongoose.Schema({
   content: {
     type: String,
-    minlength: 5,
-    required: true
+    required: true,
+    minlength: 5
   },
   date: {
     type: Date,
@@ -25,7 +13,6 @@ const noteSchema = new mongoose.Schema({
   important: Boolean
 })
 
-// Used to format the returned notes from the DB
 noteSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString()
