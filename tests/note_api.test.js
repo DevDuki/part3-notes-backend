@@ -19,6 +19,7 @@ beforeEach(async () => {
 
   await Promise.all(promiseArray)
 })
+
 describe('when there is initially some notes saved', () => {
   test('notes are returned as json', async () => {
     await api
@@ -133,12 +134,12 @@ describe('deletion of a note', () => {
   })
 })
 
-describe('wehn there is initially one used in db', () => {
+describe('wehn there is initially one user in db', () => {
   beforeEach(async () => {
     await User.deleteMany({})
 
     const passwordHash = await bcrypt.hash('sekret', 10)
-    const user = new User({ username: 'root', passwordHash })
+    const user = new User({ username: 'root', name: 'root name', passwordHash })
 
     await user.save()
   })
